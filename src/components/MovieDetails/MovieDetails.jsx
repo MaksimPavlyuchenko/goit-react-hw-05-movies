@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 
 import fetchMovieId from 'helpers/fetchMovieID';
@@ -11,6 +11,7 @@ const MovieDetails = () => {
   const [stateArray, setState] = useState([]);
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/';
+  const stopRef = useRef(backLinkHref);
 
   useEffect(() => {
     if (movieId) {
@@ -22,7 +23,7 @@ const MovieDetails = () => {
     <>
       {movieId && (
         <>
-          <Link to={backLinkHref}>GO BACK</Link>
+          <Link to={stopRef.current}>GO BACK</Link>
 
           {stateArray.length !== 0 && <MovieBox state={stateArray} />}
           <StyledLink to="cast">CAST</StyledLink>

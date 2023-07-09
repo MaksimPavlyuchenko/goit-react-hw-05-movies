@@ -31,7 +31,7 @@ const Cast = () => {
             <ActorItem key={id}>
               <StyledImg
                 src={
-                  { profile_path }
+                  profile_path
                     ? `https://image.tmdb.org/t/p/w500/${profile_path}`
                     : defaultImg
                 }
