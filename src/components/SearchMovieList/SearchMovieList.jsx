@@ -1,5 +1,8 @@
 import { useLocation } from 'react-router-dom';
+
+import PropTypes from 'prop-types';
 import { LinkStyled } from './SearchMovieList.styled';
+
 const SearchMovieList = ({ stateArray }) => {
   const location = useLocation();
 
@@ -16,3 +19,7 @@ const SearchMovieList = ({ stateArray }) => {
   );
 };
 export default SearchMovieList;
+
+SearchMovieList.propTypes = {
+  stateArray: PropTypes.array,
+};

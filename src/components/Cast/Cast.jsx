@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import fetchMovieDescription from 'helpers/fetchMovieDescription';
+
+import { fetchMovieDescription } from 'helpers';
 import {
   ActorBox,
   ActorItem,
@@ -18,9 +19,11 @@ const Cast = () => {
 
   useEffect(() => {
     if (!movieId) return;
-    fetchMovieDescription(movieId, description).then(result =>
-      setState(result.data.cast)
-    );
+    const getMovieDescription = async () => {
+      const result = await fetchMovieDescription(movieId, description);
+      setState(result.data.cast);
+    };
+    getMovieDescription();
   }, [movieId]);
 
   return (

@@ -1,4 +1,6 @@
 import { useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 import { LinkStyled } from './MovieList.styled';
 
 const MovieList = ({ stateArray }) => {
@@ -17,3 +19,7 @@ const MovieList = ({ stateArray }) => {
   );
 };
 export default MovieList;
+
+MovieList.propTypes = {
+  stateArray: PropTypes.array,
+};

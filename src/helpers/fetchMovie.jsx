@@ -1,10 +1,9 @@
 import axios from 'axios';
 
-// https://api.themoviedb.org/3/movie/550?api_key=da36feb63eaaa09d19d7bec78ef1c818
 const API_KEY = 'da36feb63eaaa09d19d7bec78ef1c818';
-const BASE_URL = 'https://api.themoviedb.org/3';
+const BASE_URL = 'https://api.themoviedb.org/3/';
 
-async function fetchMovie(endPoint) {
+export const fetchMovie = async endPoint => {
   try {
     const response = await axios.get(
       `${BASE_URL}${endPoint}?api_key=${API_KEY}`
@@ -13,5 +12,37 @@ async function fetchMovie(endPoint) {
   } catch (error) {
     alert(error.message);
   }
-}
-export default fetchMovie;
+};
+
+export const fetchMovieId = async id => {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}movie/${id}?api_key=${API_KEY}`
+    );
+    return response;
+  } catch (error) {
+    alert(error.message);
+  }
+};
+
+export const fetchMovieDescription = async (id, description) => {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}movie/${id}/${description}?api_key=${API_KEY}`
+    );
+    return response;
+  } catch (error) {
+    alert(error.message);
+  }
+};
+
+export const searchFetch = async details => {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}search/movie?query=${details}&api_key=${API_KEY}`
+    );
+    return response;
+  } catch (error) {
+    alert(error.message);
+  }
+};

@@ -1,18 +1,21 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
+
+import MovieList from 'components/MovieList/MovieList';
+import { fetchMovie } from 'helpers';
 
 import { HomeBox } from './Home.styled';
-import MovieList from 'components/MovieList/MovieList';
-import fetchMovie from 'helpers/fetchMovie';
-import { useEffect, useState } from 'react';
 
 const Home = () => {
   const [state, setState] = useState([]);
-  const endPointHome = '/trending/movie/day';
+  const endPointHome = 'trending/movie/day';
 
   useEffect(() => {
-    fetchMovie(endPointHome).then(response => {
+    const getMovie = async () => {
+      const response = await fetchMovie(endPointHome);
       setState(response.data.results);
-    });
+    };
+    getMovie();
   }, []);
   return (
     <HomeBox>

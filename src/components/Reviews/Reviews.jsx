@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import fetchMovieDescription from 'helpers/fetchMovieDescription';
+
+import { fetchMovieDescription } from 'helpers';
 
 const Reviews = () => {
   const { movieId } = useParams();
@@ -9,9 +10,11 @@ const Reviews = () => {
 
   useEffect(() => {
     if (!movieId) return;
-    fetchMovieDescription(movieId, description).then(result =>
-      setState(result.data.results)
-    );
+    const getMovieDescription = async () => {
+      const result = await fetchMovieDescription(movieId, description);
+      setState(result.data.results);
+    };
+    getMovieDescription();
   }, [movieId]);
 
   return (

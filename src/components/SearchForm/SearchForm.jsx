@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { ReactComponent as MyIcon } from '../search.svg';
+import PropTypes from 'prop-types';
 
+import { ReactComponent as MyIcon } from '../search.svg';
 import { InputStyled, FormStyled } from './SearchForm.styled';
 
 const SearchForm = ({ onSubmit }) => {
@@ -31,3 +32,7 @@ const SearchForm = ({ onSubmit }) => {
   );
 };
 export default SearchForm;
+
+SearchForm.propTypes = {
+  onSubmit: PropTypes.func,
+};
