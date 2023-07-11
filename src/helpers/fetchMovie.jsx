@@ -3,10 +3,10 @@ import axios from 'axios';
 const API_KEY = 'da36feb63eaaa09d19d7bec78ef1c818';
 const BASE_URL = 'https://api.themoviedb.org/3/';
 
-export const fetchMovie = async endPoint => {
+export const fetchMovie = async () => {
   try {
     const response = await axios.get(
-      `${BASE_URL}${endPoint}?api_key=${API_KEY}`
+      `${BASE_URL}trending/movie/day?api_key=${API_KEY}`
     );
     return response;
   } catch (error) {

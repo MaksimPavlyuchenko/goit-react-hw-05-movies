@@ -4,7 +4,7 @@ import { Outlet, useLocation, useParams } from 'react-router-dom';
 import { fetchMovieId } from 'helpers';
 import MovieBox from 'components/MovieBox/MovieBox';
 
-import { StyledLink, BoxLink } from './MovieDetails.styled';
+import { StyledLink, BoxLink } from '../styles/MovieDetails.styled';
 
 const MovieDetails = () => {
   const { movieId } = useParams();

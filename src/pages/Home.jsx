@@ -4,15 +4,14 @@ import { useEffect, useState } from 'react';
 import MovieList from 'components/MovieList/MovieList';
 import { fetchMovie } from 'helpers';
 
-import { HomeBox } from './Home.styled';
+import { HomeBox } from '../styles/Home.styled';
 
 const Home = () => {
   const [state, setState] = useState([]);
-  const endPointHome = 'trending/movie/day';
 
   useEffect(() => {
     const getMovie = async () => {
-      const response = await fetchMovie(endPointHome);
+      const response = await fetchMovie();
       setState(response.data.results);
     };
     getMovie();

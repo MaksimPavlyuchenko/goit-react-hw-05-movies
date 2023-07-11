@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import MovieDetails from 'components/MovieDetails/MovieDetails';
+import MovieDetails from 'pages/MovieDetails';
 import SearchForm from 'components/SearchForm/SearchForm';
 import SearchMovieList from 'components/SearchMovieList/SearchMovieList';
 import { searchFetch } from 'helpers';
 
-import { MoviesStyled } from './Movie.styled';
+import { MoviesStyled } from '../styles/Movie.styled';
 
 const Movies = () => {
   const [stateArray, setState] = useState([]);
